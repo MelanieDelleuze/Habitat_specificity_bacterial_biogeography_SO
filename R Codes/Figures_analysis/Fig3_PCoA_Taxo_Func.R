@@ -324,7 +324,7 @@ bc.diss = left_join(bc.diss, sd, by = "Var2")
 #write.table(bc.diss, file = "bc.diss.sed.txt", sep = "\t",row.names = TRUE, col.names = NA)
 
 #Calculating mean bray-curtis dissimilarity between regions
-#verification même valeur car comparaison 2 a 2 des echantillons apparaissent 2 fois
+#verification mÃªme valeur car comparaison 2 a 2 des echantillons apparaissent 2 fois
 ant.ker.m = mean(bc.diss$value[bc.diss$Region1=="Antarctica" & bc.diss$Region2=="Kerguelen"])
 ant.pat.m = mean(bc.diss$value[bc.diss$Region1=="Antarctica" & bc.diss$Region2=="Patagonia"])
 ant.sog.m = mean(bc.diss$value[bc.diss$Region1=="Antarctica" & bc.diss$Region2=="South Georgia"])
