@@ -11,7 +11,7 @@ library(vegan)
 library(ggplot2)
 library(geosphere)
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load data
 load("physeq_habitat_specificity.RData") 
