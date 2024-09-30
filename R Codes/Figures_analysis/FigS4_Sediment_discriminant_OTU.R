@@ -10,7 +10,7 @@ library(tibble)
 library(gridExtra)
 
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load data
 load("physeq_habitat_specificity.RData")
@@ -198,5 +198,5 @@ pheat.sed.clust = pheatmap::pheatmap(sed.lda.df, cluster_cols=as.hclust(col_dend
                                      treeheight_col =80,
                                      legend = T,
                                      fontsize = 16,cellwidth = 20, cellheight = 20,width =20, height=10,
-                                     filename = "C:/Users/melad/Desktop/figures.paper.test/FigureS5/heatmap_lda_sed.tiff"
+                                     filename = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/FigureS5/heatmap_lda_sed.tiff"
 )
