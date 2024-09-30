@@ -1,6 +1,8 @@
 **Habitat_specificity_bacterial_biogeography_SO**
 This is the associated R codes and functions used in the manuscript entitled "Habitat specificity modulates bacterial biogeographic patterns in the Southern Ocean", Delleuze et al. (2024) FEMS Microbiology Ecology.
 
+The code was developped by Mélanie Delleuze and Guillaume Schwob.
+
 The codes were divided for each figure and/or analyses: 
 
 - **0.Extraction_environmental_data_Bio-oracle_v2.2.R**: Script to extract the environmental data from BIO-Oracle (https://www.bio-oracle.org/) based on the GPS coordinates of each sampling point.
