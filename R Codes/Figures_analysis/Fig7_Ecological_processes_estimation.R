@@ -114,7 +114,7 @@ raup_crick_abu_par <- function(com, reps, ncore, classic_metric=FALSE, split_tie
 
 
 # Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load phyloseq
 load("physeq_habitat_specificity.RData") 
@@ -172,8 +172,8 @@ saveRDS(rc2.sed,"rc2_abatus2024_all.sediment.RDS")
 
 ##### Outputs processing #####
 #Import RDS
-nti_habitat_spec_sed= readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/nti_abatus2024_all.sediment.RDS")
-rc2_habitat_spec_sed = readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/rc2_abatus2024_all.sediment.RDS")
+nti_habitat_spec_sed= readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/nti_abatus2024_all.sediment.RDS")
+rc2_habitat_spec_sed = readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/rc2_abatus2024_all.sediment.RDS")
 
 nti.sed<-nti_habitat_spec_sed$comdistnt.obs.z %>% melt() #Extract results and transform matrix, one value for each samples comparison
 dim(nti.sed)
@@ -355,8 +355,8 @@ saveRDS(rc2.cont,"rc2_abatus2024_all.content.RDS")
 
 ##### Outputs processing #####
 #Import RDS
-nti_habitat_spec_cont= readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/nti_abatus2024_all.content.RDS")
-rc2_habitat_spec_cont = readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/rc2_abatus2024_all.content.RDS")
+nti_habitat_spec_cont= readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/nti_abatus2024_all.content.RDS")
+rc2_habitat_spec_cont = readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/rc2_abatus2024_all.content.RDS")
 
 nti.cont<-nti_habitat_spec_cont$comdistnt.obs.z %>% melt() #Extract results and transform matrix, one value for each samples comparison
 dim(nti.cont)
@@ -538,8 +538,8 @@ saveRDS(rc2.tiss,"rc2_abatus2024_all.tissue.RDS")
 
 ##### Outputs processing #####
 #Import RDS
-nti_habitat_spec_tiss= readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/nti_abatus2024_all.tissue.RDS")
-rc2_habitat_spec_tiss = readRDS("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/QPE Abatus_new/rc2_abatus2024_all.tissue.RDS")
+nti_habitat_spec_tiss= readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/nti_abatus2024_all.tissue.RDS")
+rc2_habitat_spec_tiss = readRDS("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/QPE Abatus_new/rc2_abatus2024_all.tissue.RDS")
 
 nti.tiss<-nti_habitat_spec_tiss$comdistnt.obs.z %>% melt() #Extract results and transform matrix, one value for each samples comparison
 dim(nti.tiss)
