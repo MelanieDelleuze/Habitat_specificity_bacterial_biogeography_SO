@@ -7,7 +7,7 @@
 # Load required libraries
 library(phyloseq)
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 #Load phyloseq object
 load("physeq_habitat_specificity.RData") 
 physeq_habitat_specificity #in raw counts
@@ -1020,5 +1020,5 @@ Matrix = c(rep("Bray-Curtis",3),rep("Jaccard",3),rep("Unweighted UniFrac",3))
 
 
 TableS3 = data.frame(Matrix, Habitat, Means, comparisons, p_adjusted)
-write.table(TableS3, file = "C:/Users/melad/Desktop/figures.paper.test/FigureS3/TableS3.txt", sep = "\t",
+write.table(TableS3, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/FigureS3/TableS3.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
