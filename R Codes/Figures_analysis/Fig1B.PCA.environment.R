@@ -3,7 +3,7 @@
 ##----------------------------------------##
 
 # Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 # Loading required library
 library(factoextra)
@@ -22,7 +22,7 @@ pca.envi = prcomp(my_data_envi1, scale =TRUE)
 # Testing correlation between environmental variables
 core.data = cor(my_data_envi1, method = "pearson")
 # Save correlation table 
-write.table(core.data, file = "C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO/core.data.txt", sep = "\t",row.names = TRUE, col.names = NA)
+write.table(core.data, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/core.data.txt", sep = "\t",row.names = TRUE, col.names = NA)
 
 # Leave only some variables removing positive correlated ones >0.95 to show only one vector for these variables in the PCA
 my_data_envi2 = my_data_envi1[,-(10:11)]
