@@ -10,13 +10,13 @@ library(cowplot)
 library(ggpubr)
 
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #To calculate the processes for each habitat we follow the script developed by Schwob G. #LINK GITHUB
 
 # Import the data of the ecological processes for each habitat intra and inter site
-ecological_processes_habitat = read.table("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO/ecological_processes_habitat.txt",header = T)
-ecological_processes_habitat_counts = read.table("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO/ecological_processes_habitat_counts.txt",header = T)
+ecological_processes_habitat = read.table("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/ecological_processes_habitat.txt",header = T)
+ecological_processes_habitat_counts = read.table("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/ecological_processes_habitat_counts.txt",header = T)
 
 #### Within sites ####
 intra_site= subset(ecological_processes_habitat, Dataset == "intra_site")
