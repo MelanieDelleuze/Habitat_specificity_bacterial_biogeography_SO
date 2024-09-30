@@ -14,7 +14,7 @@ The codes were divided for each figure and/or analyses:
 - **Fig5_DDR.R** : Distance Decay Relationship
 - **Fig6_Heatmap_discriminant_OTUs.R** : Linear discriminant analysis effect size (Lefse) by habitat and heatmap plotting
 - **Fig7_Ecological_processes.R** : Script for the construction of the figure 7
-- **Fig7_Ecological_processes_estimation.R** : Script for the estimation of the ecological processes developped by Guillaume Schwob and based on the scripts of Stegen et al. 2013 and Richter-Heitmann et al. 2020.
+- **Fig7_Ecological_processes_estimation.R** : Script for the estimation of the ecological processes developped by Guillaume Schwob and based on the scripts of Stegen et al. 2013 (https://github.com/stegen/Stegen_etal_ISME_2013) and Richter-Heitmann et al. 2020 (https://github.com/FranzKrah/raup_crick)
 - **FigS4_Sediment_discriminant_OTU.R**: Lefse and core analysis of sediment communities
 - **FigS5_Gut_tissue_discriminant_OTU.R** : Lefse and core analysis of gut tissue communities
 - **FigS7_dendrograms_geo_envi.R** : Dendogramms based on geographical and environmental distances
