@@ -7,7 +7,7 @@ library(microbiomeMarker)
 library(phyloseq)
 library(RColorBrewer)
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load data
 load("physeq_habitat_specificity.RData") 
@@ -27,7 +27,7 @@ load("physeq_habitat_specificity.RData")
 #write.table(lefse_all_dat_mark_df_2, file = "lefse_all_dat_mark_df.txt", sep = "\t",row.names = TRUE, col.names = NA)
 
 #load table LDA
-lefse_all_dat_mark_df = read.table("C:/Users/melad/Dropbox/Fondecyt Abatus 2021/6A. Estadia Melanie Delleuze/10.Paper/Script R/New_version_02_2024/lefse_all_dat_mark_df.txt", header=TRUE)
+lefse_all_dat_mark_df = read.table("~/GitHub/Habitat_specificity_bacterial_biogeography_SO/lefse_all_dat_mark_df.txt", header=TRUE)
 lefse_all_dat_mark_df = data.frame(lefse_all_dat_mark_df) #Contains the LDA score (Table S7)
 #creating a vector
 lefse.otu.hab = lefse_all_dat_mark_df[,2]
@@ -96,7 +96,7 @@ breaklist = seq(-5, 5, by=0.5)
 
 # Plot pheatmap
 #run one first time with hab.lda.df.2 then change order of samples
-ph.map.hab= pheatmap::pheatmap(hab.lda.df.2.order,filename = "C:/Users/melad/Desktop/figures.paper.test/Figure7/Figure7.heatmap.tiff",
+ph.map.hab= pheatmap::pheatmap(hab.lda.df.2.order,filename = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/Figure7/Figure7.heatmap.tiff",
                                scale="row", 
                                annotation_col = my_sample_col2,annotation_row = my_sample_row2,
                                annotation_colors = my_colour2,
