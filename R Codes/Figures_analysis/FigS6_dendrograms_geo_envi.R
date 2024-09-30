@@ -10,7 +10,7 @@ library(microViz)
 library(geosphere)
 
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load data
 load("physeq_habitat_specificity.RData")
@@ -93,7 +93,7 @@ dl2 <- dendlist(
 #bc  "#7AB8B2","#9D0208","#90A955","#865AAC","#E78419"
 
 # Plot them together
-tiff(file="C:/Users/melad/Desktop/figures.paper.test/FigureS7/Dendrograms_Sed_Geo_Taxo.tiff",width=3800, height=2500, res=300)
+tiff(file="~/GitHub/Habitat_specificity_bacterial_biogeography_SO/FigureS7/Dendrograms_Sed_Geo_Taxo.tiff",width=3800, height=2500, res=300)
 tanglegram(dl2, 
            common_subtrees_color_lines = TRUE, highlight_distinct_edges  = TRUE, highlight_branches_lwd=TRUE, 
            margin_inner=0.5,margin_outer=1,intersecting=TRUE,match_order_by_labels=TRUE, 
