@@ -12,7 +12,7 @@ library(tibble)
 library(gridExtra)
 
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 #Load data
 load("physeq_habitat_specificity.RData")
@@ -29,7 +29,7 @@ tissue.meta.new <- tissue.meta %>%
 sample_data(tissue) = tissue.meta.new
 
 #### Fig. S6A: Venn diagram gut tissue ####
-png(file="C:/Users/melad/Desktop/figures.paper.test/FigureS6/Fig6A.venn.tiff",width=3000, height=3000, res=300)
+png(file="~/GitHub/Habitat_specificity_bacterial_biogeography_SO/FigureS6/Fig6A.venn.tiff",width=3000, height=3000, res=300)
 MicEco::ps_venn(tissue,group = "Host", plot=TRUE, fraction=0,labels = list(cex = 2),
                    fills = list(fill=c("#E78419","#865AAC","#7AB8B2"),alpha=0.6),
                    quantities = list(type=c("percent","counts"), font = 1, cex=2),
@@ -165,7 +165,7 @@ my_colour = list(Host= c("A. agassizii"="#7AB8B2", "A. cavernosus"="#E78419",
                             "Desulfobacterota" ="#8bc34a",  "Firmicutes" ="#D5F05D","Latescibacterota"="#F7933C",
                             "Planctomycetota"="#f44336",   "Proteobacteria"="#ad1457",    "Spirochaetota"="#641E3C" ))
 
-hm.gut =pheatmap::pheatmap(tiss.lda.df,filename = "C:/Users/melad/Desktop/figures.paper.test/FigureS6/Fig6C.tiff",
+hm.gut =pheatmap::pheatmap(tiss.lda.df,filename = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/FigureS6/Fig6C.tiff",
                            scale="row",annotation_col = my_sample_col,annotation_colors = my_colour,
                            annotation_row = my_sample_row,
                            show_colnames = F, border_color = TRUE,
