@@ -3,7 +3,7 @@
 # https://bio-oracle.org/index.php
 
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 # Only once and then save the metadata with the extracted environmental variables (phyloseq@samdata)
 library(sdmpredictors)
@@ -22,7 +22,7 @@ layers.envi =load_layers(layercodes = c("BO22_chlomean_bdmean",
 "BO22_curvelmean_bdmean","BO22_dissoxmean_bdmean","BO22_ironmean_bdmean",
 "BO22_phosphatemean_bdmean","BO22_lightbotmean_bdmean","BO22_ph","BO22_nitratemean_bdmean",
 "BO22_tempmean_bdmean","BO22_carbonphytomean_bdmean","BO22_ppmean_bdmean",
-"BO22_salinitymean_bdmean","BO22_silicatemean_bdmean"),equalarea = FALSE, rasterstack = TRUE,datadir ="C:/Users/melad/Documents/GitHub/Habitat_specifcity_bacterial_biogeography_SO/Bio_Oracle")
+"BO22_salinitymean_bdmean","BO22_silicatemean_bdmean"),equalarea = FALSE, rasterstack = TRUE,datadir ="~/GitHub/Habitat_specificity_bacterial_biogeography_SO/Bio_Oracle")
 
 # Extracting the environmental values for each of the sample's site
 my_data_environment = data.frame(Name=my_data$Group ,raster::extract(layers.envi,my_data[,14:15])) #lat and long columns
