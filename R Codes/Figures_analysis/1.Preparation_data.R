@@ -5,7 +5,7 @@
 #### 1. Load Data and make Phyloseq object based on taxonomy #### 
 
 #set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 
 # The imported OTU table was filtered by Bokulich filter (0.005%, Bokulich et al., 2013) and was rarefied to 6000 sequences per sample
 library(phyloseq)
