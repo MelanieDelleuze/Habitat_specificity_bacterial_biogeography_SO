@@ -32,34 +32,12 @@ physeq_habitat_specificity
 # Save phyloseq 
 save(physeq_habitat_specificity, file = "physeq_habitat_specificity.RData")
 
-#### 2. Load Data PICRUSt2 and make Phyloseq object #### 
-# Import PICRUSt2 outputs
-metacyc_tab = "path_abun_unstrat_descrip_metacyc_hab_spec.tsv" #output table with abundances of metacyc pathways from PICRUSt2 
-sam_tab = "metadata_hab_spec_func.tsv" #same metadata as for taxo but saved in tsv format
-
-#Read outputs from PICRUSt2 as phyloseq object
-library(microbiomeMarker)
-ps_metacyc = import_picrust2(metacyc_tab, sam_tab, trait = "PATHWAY")
-# Indicate row and column names as sample names
-rownames(ps_metacyc@sam_data) = ps_metacyc@sam_data$Group
-colnames(ps_metacyc@otu_table)= rownames(ps_metacyc@sam_data)
-# Transform into relative abundances 
-ps_metacyc_hab_spec = microbiome::transform(ps_metacyc, "compositional")
-# Save phyloseq
-save(ps_metacyc_hab_spec, file = "ps_metacyc_hab_spec.RData")
-
-
-#### 3. Creation of subsets ####
+#### 2. Creation of subsets ####
 library(microViz)
 # By habitat
 sediment = ps_filter(physeq_habitat_specificity,Type=="Sediment")
 content = ps_filter(physeq_habitat_specificity,Type=="Gut content")
 tissue = ps_filter(physeq_habitat_specificity,Type=="Gut tissue")
-
-#Predicted functional data
-sediment_func = ps_filter(ps_metacyc_hab_spec,Type=="Sediment")
-content_func = ps_filter(ps_metacyc_hab_spec,Type=="Gut content")
-tissue_func = ps_filter(ps_metacyc_hab_spec,Type=="Gut tissue")
 
 # By site
 kgi = ps_filter(physeq_habitat_specificity, Site =="KGI") #Antarctica site
