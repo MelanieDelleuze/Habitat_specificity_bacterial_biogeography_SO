@@ -6,7 +6,7 @@
 library(phyloseq)
 library(microViz)
 #Set working directory
-setwd("C:/Users/melad/Documents/GitHub/Habitat_specificity_bacterial_biogeography_SO")
+setwd("~/GitHub/Habitat_specificity_bacterial_biogeography_SO")
 #Load data
 load("physeq_habitat_specificity.RData") 
 sediment = ps_filter(physeq_habitat_specificity,Type=="Sediment")
@@ -117,116 +117,6 @@ leg.pcoa2=as_ggplot(leg.pcoa)
 Pcoa = plot_grid(sed, cont,tiss, nrow=1, ncol=3)
 #save svg tiff 3000 900
 
-##### Fig.3B.PCoA per habitat Functions PICRUSt2 #####
-#Load data
-load("ps_metacyc_hab_spec.RData") 
-#Creation subsets
-sediment_func = ps_filter(ps_metacyc_hab_spec,Type=="Sediment")
-content_func = ps_filter(ps_metacyc_hab_spec,Type=="Gut content")
-tissue_func = ps_filter(ps_metacyc_hab_spec,Type=="Gut tissue")
-# Transform in Relative abundances
-sediment_func_rel = microbiome::transform(sediment_func,"compositional")
-content_func_rel = microbiome::transform(content_func,"compositional")
-tissue_func_rel = microbiome::transform(tissue_func,"compositional")
-
-#Calculating distance BC
-dist.sed.mc = phyloseq::distance(sediment_func_rel, method="bray")
-dist.cont.mc = phyloseq::distance(content_func_rel, method="bray")
-dist.tiss.mc = phyloseq::distance(tissue_func_rel, method="bray")
-
-set.seed(123)
-ordsed.mc = ordinate(sediment_func_rel,method="PCoA", distance = dist.sed.mc)
-ordcont.mc = ordinate(content_func_rel,method="PCoA", distance = dist.cont.mc)
-ordtiss.mc = ordinate(tissue_func_rel,method="PCoA", distance = dist.tiss.mc)
-
-sed.mc = plot_ordination(sediment_func_rel, ordsed.mc, color= "Region",shape="Host") +
-  ggtitle("")+
-  scale_color_manual(breaks = c("Patagonia","Falkland","South Georgia","Kerguelen","Antarctica"),
-                     values = c("#9D0208","#E78419","#90A955","#865AAC","#83C5BE"))+
-  geom_point(size=6)+
-  stat_ellipse(aes(group = Region), linetype = 2)+
-  xlab("PCoA Axis 1 (42.6%)")+ #check and modify axis contribution accordingly
-  ylab("PCoA Axis 2 (37.0%)")+
-  scale_x_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  scale_y_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  theme(panel.background = element_blank(),
-        plot.title = element_text(size=42),
-        legend.position = "none",
-        panel.grid.major=element_blank(),
-        axis.line = element_line(linetype=1,color="grey20"),
-        axis.text.x = element_text(size = 34,color="black"),
-        axis.title.x = element_text(size =34),
-        axis.title.y = element_text(size=34),
-        axis.text.y =element_text(size=34,color="black"),
-        legend.key = element_blank(),
-        legend.text = element_text(size=34),
-        legend.title = element_text(size=34),
-        plot.margin = unit(c(1,1,1,1), "cm"),
-        panel.border = element_rect(colour = "black", fill="NA", size=3))
-sed.mc
-
-cont.mc = plot_ordination(content_func_rel, ordcont.mc, color= "Region", shape="Host") +
-  ggtitle("")+
-  scale_color_manual(breaks = c("Patagonia","Falkland","South Georgia","Kerguelen","Antarctica"),
-                     values = c("#9D0208","#E78419","#90A955","#865AAC","#83C5BE"))+
-  geom_point(size=6)+
-  stat_ellipse(aes(group = Region), linetype = 2)+
-  xlab("PCoA Axis 1 (43.7%)")+
-  ylab("PCoA Axis 2 (22.8%)")+
-  scale_x_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  scale_y_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  theme(panel.background = element_blank(),
-        plot.title = element_text(size=42),
-        legend.position = "none",
-        panel.grid.major=element_blank(),
-        axis.line = element_line(linetype=1,color="grey20"),
-        axis.text.x = element_text(size = 34,color="black"),
-        axis.title.x = element_text(size = 34),
-        axis.title.y = element_text(size=34),
-        axis.text.y =element_text(size=34,color="black"),
-        legend.key = element_blank(),
-        legend.text = element_text(size=34),
-        legend.title = element_text(size=34),
-        plot.margin = unit(c(1,1,1,1), "cm"),
-        panel.border = element_rect(colour = "black", fill="NA", size=3))
-cont.mc
-
-tiss.mc = plot_ordination(tissue_func_rel, ordtiss.mc, color= "Region",shape="Host") +
-  ggtitle("")+
-  scale_color_manual(breaks = c("Patagonia","Falkland","Kerguelen","South Georgia","Antarctica"),
-                     values = c("#9D0208","#E78419","#865AAC","#90A955","#83C5BE"),
-                     labels=c("Patagonia","Falkland/Malvinas I.","Kerguelen I.","South Georgia","South Shetland I."))+
-  scale_shape_discrete(labels=c(expression(italic("A.agassizii    ")),expression(italic("A.cavernosus")),expression(italic("A.cordatus     "))))+
-  geom_point(size=6)+
-  stat_ellipse(aes(group = Region), linetype = 2)+
-  xlab("PCoA Axis 1 (40.0%)")+
-  ylab("PCoA Axis 2 (16.9%)")+
-  labs(shape="Host",color="Site")+
-  scale_x_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  scale_y_continuous(limits= c(-0.2,0.2),breaks = c(-0.2,0,0.2))+
-  theme(panel.background = element_blank(),
-        legend.position = "none",
-        plot.title=element_text(size=42),
-        panel.grid.major=element_blank(),
-        axis.line = element_line(linetype=1,color="grey20"),
-        axis.text.x = element_text(size = 34,color="black"),
-        axis.title.x = element_text(size = 34),
-        axis.title.y = element_text(size=34),
-        axis.text.y =element_text(size=34,color="black"),
-        legend.key = element_blank(),
-        legend.text = element_text(size=34),
-        legend.title = element_text(size=34),
-        plot.margin = unit(c(1,1,1,1), "cm"),
-        panel.border = element_rect(colour = "black", fill="NA", size=3))
-tiss.mc
-
-Pcoa_func = plot_grid(sed.mc,cont.mc,tiss.mc, ncol=3, nrow=1)
-
-Fig3 = plot_grid(sed,cont,tiss,
-                 sed.mc,cont.mc,tiss.mc,
-                 ncol=3, nrow=2)
-#Save tiff 3000 1800
-
 ##---------------##
 #### PERMANOVA ####
 ##---------------##
@@ -237,7 +127,7 @@ meta= meta(tissue.rel)
 #Permanova test 
 permanova= adonis2(t(otu) ~ Site,data=meta,permutations=999,method="bray", by = "terms")
 #Saving results
-write.table(permanova, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/permanova.bc.tiss.site.txt", sep = "\t",
+write.table(permanova, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/permanova.bc.tiss.site.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
 
 #Permanova with unifrac dist matrix
@@ -247,7 +137,7 @@ dist.uf <- phyloseq::distance(tissue.rel, method = "unifrac")
 dist.uf2 = t(dist.uf)
 permanova.UF = adonis2(dist.uf2 ~ Province_1, data = meta.uf, perm=999,p.adjust="holm", by="terms")
 #Saving results
-write.table(permanova.UF, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/permanova.uf.tiss.prov.txt", sep = "\t",
+write.table(permanova.UF, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/permanova.uf.tiss.prov.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
 
 ###### Pairwise Permanova Taxonomy Bray-Curtis ######
@@ -263,34 +153,8 @@ set.seed(123)
 pairwise.permanova = funfuns::pairwise.adonis(hab.df[,12:ncol(hab.df)],hab.df$Region,sim.method = "bray", p.adjust.m = "holm", permutations = 999)
 
 #Saving results
-write.table(pairwise.permanova, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/PERMANOVA/Taxonomy/pairwise.permanova.bc.tiss.txt", sep = "\t",
+write.table(pairwise.permanova, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/Figure3/PERMANOVA/Taxonomy/pairwise.permanova.bc.tiss.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
-
-###### Permanova Predicted Functions Picrust2 ######
-set.seed(123)
-#Sediment
-otu.mc = abundances(tissue_func)
-meta.mc = meta(tissue_func)
-permanova.mc = adonis2(t(otu.mc)~Site,data=meta.mc,permutations=999,method="bray")
-#Saving results
-write.table(permanova.mc, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/PERMANOVA/Predicted functionality/permanova.bc.tiss.func.site.txt", sep = "\t",
-            row.names = TRUE, col.names = NA)
-
-
-### Preparing data for pairwise permanova ###
-otu.mc.2 = t(otu_table(tissue_func))
-otu.mc.2 = data.frame(otu.mc.2)
-meta.mc.2 = data.frame(sample_data(tissue_func))
-meta.mc.2 = meta.mc.2[,-(9:27)]
-otu.hab.df = merge(meta.mc.2,otu.mc.2,by = 'row.names', all = TRUE)
-
-### Pairwise permanova ###
-set.seed(123)
-pairwise.permanova.mc = funfuns::pairwise.adonis(otu.hab.df[,10:ncol(otu.hab.df)],otu.hab.df$Region,sim.method = "bray", p.adjust.m = "holm", permutations = 999)
-#Saving results
-write.table(pairwise.permanova.mc, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/PERMANOVA/Predicted functionality/permanova.pairwise.bc.tiss.func.site.txt", sep = "\t",
-            row.names = TRUE, col.names = NA)
-
 
 ##----------------------------------------------------------##
 #### Table S5: Mean Bray-Curtis differences between sites ####
@@ -362,5 +226,5 @@ sd_bc = c(ant.ker.sd,ant.pat.sd, ant.sog.sd, ant.falk.sd ,ker.pat.sd ,
 #Create data frame
 mean_bc = data.frame(comparisons, mean_bc, sd_bc)
 #Saving results
-write.table(mean_bc, file = "C:/Users/melad/Desktop/figures.paper.test/Figure3/PERMANOVA/mean_bc_cont_func.txt", sep = "\t",
+write.table(mean_bc, file = "~/GitHub/Habitat_specificity_bacterial_biogeography_SO/Figure3/PERMANOVA/mean_bc_cont_func.txt", sep = "\t",
             row.names = TRUE, col.names = NA)
