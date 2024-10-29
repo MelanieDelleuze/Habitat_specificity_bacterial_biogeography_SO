@@ -1,5 +1,5 @@
 **Habitat_specificity_bacterial_biogeography_SO**
-This is the associated R codes and functions used in the manuscript entitled "Habitat specificity modulates bacterial biogeographic patterns in the Southern Ocean", Delleuze et al. (2024) FEMS Microbiology Ecology.
+This is the associated R codes and functions used in the manuscript entitled "Habitat specificity modulates bacterial biogeographic patterns in the Southern Ocean", Delleuze et al. (2024) FEMS Microbiology Ecology, 2024;, fiae134, https://doi.org/10.1093/femsec/fiae134
 
 The code was developped by Mélanie Delleuze and Guillaume Schwob.
 
