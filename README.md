@@ -3,6 +3,8 @@ This is the associated R codes and functions used in the manuscript entitled "Ha
 
 The code was developped by Mélanie Delleuze and Guillaume Schwob.
 
+To cite the code: [![DOI](https://zenodo.org/badge/793131053.svg)](https://doi.org/10.5281/zenodo.14226360)
+
 The codes were divided for each figure and/or analyses: 
 
 - **0.Extraction_environmental_data_Bio-oracle_v2.2.R**: Script to extract the environmental data from BIO-Oracle (https://www.bio-oracle.org/) based on the GPS coordinates of each sampling point.
