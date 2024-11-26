@@ -1,2 +1,5 @@
-
-Files will be uploaded once the related manuscript is published
+The input data consists of: 
+- otu.table.habitat.specificity.txt : the OTU table with their abundance per sample
+- taxa.table.habitat.specificity.txt : the tax table containing the taoxnomic affiliation of each OTU
+- metadata.habitat.specificity.txt : the associated metadata
+- tree.habitat.specificity.tree : the phylogenetic tree constructed with FastTree
